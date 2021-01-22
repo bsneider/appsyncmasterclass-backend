@@ -1,5 +1,5 @@
 service: appsyncmasterclass-backend
-frameworkVersion: '2'
+frameworkVersion: "2"
 
 plugins:
   - serverless-appsync-plugin
@@ -10,7 +10,7 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
-  region: eu-west-1
+  region: us-east-1
   environment:
     STAGE: ${self:custom.stage}
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: "1"
@@ -82,7 +82,7 @@ functions:
         Resource: !GetAtt TweetsTable.Arn
       - Effect: Allow
         Action: dynamodb:UpdateItem
-        Resource: 
+        Resource:
           - !GetAtt TweetsTable.Arn
           - !GetAtt UsersTable.Arn
       - Effect: Allow
@@ -104,7 +104,7 @@ functions:
         Resource: !GetAtt TweetsTable.Arn
       - Effect: Allow
         Action: dynamodb:UpdateItem
-        Resource: 
+        Resource:
           - !GetAtt TweetsTable.Arn
           - !GetAtt UsersTable.Arn
       - Effect: Allow
@@ -129,7 +129,7 @@ functions:
         Resource: !Sub "${TweetsTable.Arn}/index/retweetsByCreator"
       - Effect: Allow
         Action: dynamodb:UpdateItem
-        Resource: 
+        Resource:
           - !GetAtt TweetsTable.Arn
           - !GetAtt UsersTable.Arn
       - Effect: Allow
@@ -150,7 +150,7 @@ functions:
           arn: !GetAtt TweetsTable.StreamArn
     iamRoleStatements:
       - Effect: Allow
-        Action: 
+        Action:
           - dynamodb:PutItem
           - dynamodb:DeleteItem
           - dynamodb:BatchWriteItem
@@ -177,7 +177,7 @@ functions:
           - !Sub "${TweetsTable.Arn}/index/byCreator"
           - !Sub "${TimelinesTable.Arn}/index/byDistributedFrom"
       - Effect: Allow
-        Action: 
+        Action:
           - dynamodb:BatchWriteItem
           - dynamodb:PutItem
           - dynamodb:DeleteItem
@@ -362,7 +362,7 @@ resources:
             Value: ${self:custom.stage}
           - Key: Name
             Value: relationships-table
-            
+
     CognitoUserPool:
       Type: AWS::Cognito::UserPool
       Properties:
@@ -415,9 +415,9 @@ resources:
                 - GET
                 - PUT
               AllowedOrigins:
-                - '*'
+                - "*"
               AllowedHeaders:
-                - '*'
+                - "*"
 
   Outputs:
     AwsRegion:
