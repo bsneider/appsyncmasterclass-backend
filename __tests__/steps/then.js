@@ -205,6 +205,7 @@ const there_are_N_tweets_in_TimelinesTable = async (userId, n) => {
 
 const user_can_upload_image_to_url = async (url, filepath, contentType) => {
   const data = fs.readFileSync(filepath)
+  console.log('data from readFileSync', data)
   await http({
     method: 'put',
     url,
