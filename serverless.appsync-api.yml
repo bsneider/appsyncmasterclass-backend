@@ -1,4 +1,4 @@
-name: appsyncmasterclass
+name: asmc
 schema: schema.api.graphql
 authenticationType: AMAZON_COGNITO_USER_POOLS
 userPoolConfig:

@@ -1,4 +1,6 @@
-service: appsyncmasterclass-backend
+org: gringots
+app: asmc
+service: asmc-backend
 frameworkVersion: "2"
 
 plugins:
